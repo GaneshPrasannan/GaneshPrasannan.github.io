@@ -972,11 +972,16 @@ section {
   padding: 10px;
   margin: 0 auto;
   border-radius: 8px;
+}
+#status.success {
   background-color: rgb(211, 250, 153);
   animation: status 4s ease forwards;
-  display: none;
 }
-
+#status.error {
+  background-color: rgb(250, 129, 92);
+  color: white;
+  animation: status 4s ease forwards;
+}
 @keyframes status {
   0% {
     opacity: 1;
