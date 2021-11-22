@@ -256,17 +256,48 @@
 })()
 
 // Form
-$(function() {
-    $('#Submit').click(function(e) {
-    var name = $("#name").val();
-    var email = $("#email").val();
-    var subject = $("#subject").val();
-    var message = $("#message").val();
-    $.post("https://discord.com/api/webhooks/909699574707417188/8iZyQouKwpJ84QIlhTxoG75nCLpq00dOutGYZvatXhzCEY5SZqVCtgYlbg03bdBsB5Ac",
-{"content": ">>> **Name: ** " + name + "\n**Mail: ** " + email + "\n**Subject: **" + subject + "\n**Message: **" + message, "username": "GaneshPrasannan.me", "avatar_url": "https://ganeshprasannan.me/assets/img/favicon.png"})
-    });
+window.addEventListener("DOMContentLoaded", function () {
+  // get the form elements defined in your form HTML above
+
+  var form = document.getElementById("my-form");
+  // var button = document.getElementById("my-form-button");
+  var status = document.getElementById("status");
+
+  // Success and Error functions for after the form is submitted
+
+  function success() {
+    form.reset();
+    status.classList.add("success");
+    status.innerHTML = "Thanks!";
+  }
+
+  function error() {
+    status.classList.add("error");
+    status.innerHTML = "Oops! There was a problem.";
+  }
+
+  // handle the form submission event
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var data = new FormData(form);
+    ajax(form.method, form.action, data, success, error);
+  });
 });
 
-function submit() {
-    document.getElementById("status").style = "display: inline-block;";
+// helper function for sending an AJAX request
+
+function ajax(method, url, data, success, error) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
+      success(xhr.response, xhr.responseType);
+    } else {
+      error(xhr.status, xhr.response, xhr.responseType);
+    }
+  };
+  xhr.send(data);
 }
