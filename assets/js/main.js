@@ -267,6 +267,6 @@ $(function() {
     });
 });
 
-function foo() {
+function submit() {
     document.getElementById("status").style = "display: inline-block;";
 }
