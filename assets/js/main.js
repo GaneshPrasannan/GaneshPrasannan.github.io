@@ -4,6 +4,15 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+function showSpoiler(){
+    var spoiler = document.getElementById('spoiler');
+    spoiler.style.backgroundColor = 'rgba(32,34,37,.7)';
+    spoiler.style.zIndex = '1';
+    spoiler.style.color = 'white';
+    spoiler.style.cursor = 'auto';
+}
+
 (function() {
   "use strict";
 
