@@ -26,7 +26,21 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
-
+/*--------------------------------------------------------------
+# Spoiler Text
+--------------------------------------------------------------*/
+#spoiler{
+    background-color: #202225;
+    color: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 2px;
+    transition: ease-in-out 0.1s;
+}
+#spoiler:hover{
+    background-color: rgba(32,34,37,.8);
+    color: transparent;
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
